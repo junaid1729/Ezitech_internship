@@ -1,0 +1,41 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #eaf6ff, #ffffff);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1 0 auto;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #1a5276;
+    color: #fff;
+    font-weight: bold;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #1a5276;
+}
+
+input.form-control {
+    border-radius: 5px;
+}
