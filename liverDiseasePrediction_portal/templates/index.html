@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction System</title>
+    <link rel="stylesheet" href="static\style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-header">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <h1 class="logo-text"><i class="fas fa-laptop-medical me-2"></i>Liver Disease Prediction</h1>
+            <nav>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Form -->
+    <main class="container mt-5 pt-5">
+        <div class="main-container">
+            <h2 class="section-title text-center"><i class="fas fa-heartbeat me-2"></i>Patient Data</h2>
+            <form id="manualForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="age" class="form-label">Age (20-80)</label>
+                        <div class="slider-container">
+                            <input type="range" class="form-range" id="age" name="Age" min="20" max="80" value="45" oninput="updateValue('ageValue', this.value)">
+                            <span class="slider-value" id="ageValue">45</span>
+                        </div>
+
+                        <label for="gender" class="form-label mt-3">Gender</label>
+                        <select class="form-select" id="gender" name="Gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+
+                        <label for="bmi" class="form-label mt-3">BMI (15-40)</label>
+                        <div class="slider-container">
+                            <input type="range" class="form-range" id="bmi" name="BMI" min="15" max="40" step="0.1" value="25" oninput="updateValue('bmiValue', this.value)">
+                            <span class="slider-value" id="bmiValue">25</span>
+                        </div>
+
+                        <label for="alcohol" class="form-label mt-3">Alcohol Consumption (0-20 units/week)</label>
+                        <div class="slider-container">
+                            <input type="range" class="form-range" id="alcohol" name="AlcoholConsumption" min="0" max="20" value="5" oninput="updateValue('alcoholValue', this.value)">
+                            <span class="slider-value" id="alcoholValue">5</span>
+                        </div>
+
+                        <label for="smoking" class="form-label mt-3">Smoking</label>
+                        <select class="form-select" id="smoking" name="Smoking" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="genetic" class="form-label">Genetic Risk</label>
+                        <select class="form-select" id="genetic" name="GeneticRisk" required>
+                            <option value="">Select</option>
+                            <option value="0">Low</option>
+                            <option value="1">Medium</option>
+                            <option value="2">High</option>
+                        </select>
+
+                        <label for="activity" class="form-label mt-3">Physical Activity (0-10 hours/week)</label>
+                        <div class="slider-container">
+                            <input type="range" class="form-range" id="activity" name="PhysicalActivity" min="0" max="10" step="0.5" value="3" oninput="updateValue('activityValue', this.value)">
+                            <span class="slider-value" id="activityValue">3</span>
+                        </div>
+
+                        <label for="diabetes" class="form-label mt-3">Diabetes</label>
+                        <select class="form-select" id="diabetes" name="Diabetes" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="hypertension" class="form-label mt-3">Hypertension</label>
+                        <select class="form-select" id="hypertension" name="Hypertension" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+
+                        <label for="liverTest" class="form-label mt-3">Liver Function Test (20-100 ALT U/L)</label>
+                        <div class="slider-container">
+                            <input type="range" class="form-range" id="liverTest" name="LiverFunctionTest" min="20" max="100" value="40" oninput="updateValue('liverTestValue', this.value)">
+                            <span class="slider-value" id="liverTestValue">40</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-calculator me-2"></i>Predict</button>
+                </div>
+            </form>
+
+            <!-- Prediction Result -->
+            <div id="manualResult" class="result-box mt-4" style="display:none;">
+                <h4 class="text-center">Prediction Result</h4>
+                <hr>
+                <p class="text-center">Liver Disease: <span id="diseaseStatus" class="disease-present">Present</span></p>
+                <p class="text-center" id="diseaseDescription"></p>
+                <div class="text-center">
+                    <button class="btn btn-outline-secondary" onclick="resetForm()"><i class="fas fa-redo me-2"></i>New Assessment</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="sticky-footer text-center py-3">
+        <p>&copy; 2025 Liver Disease Prediction System. All rights reserved.</p>
+    </footer>
+
+    <script src="static\script.js"></script>
+</body>
+</html>
